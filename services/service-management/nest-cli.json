@@ -1,0 +1,39 @@
+{
+  "collection": "@nestjs/schematics",
+  "sourceRoot": "apps/service-management/src",
+  "monorepo": true,
+  "root": "apps/service-management",
+  "compilerOptions": {
+    "webpack": true,
+    "tsConfigPath": "apps/service-management/tsconfig.app.json"
+  },
+  "projects": {
+    "gateway-svc": {
+      "type": "application",
+      "root": "apps/gateway-svc",
+      "entryFile": "main",
+      "sourceRoot": "apps/gateway-svc/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/gateway-svc/tsconfig.app.json"
+      }
+    },
+    "ingredient-svc": {
+      "type": "application",
+      "root": "apps/ingredient-svc",
+      "entryFile": "main",
+      "sourceRoot": "apps/ingredient-svc/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/ingredient-svc/tsconfig.app.json"
+      }
+    },
+    "recipe-svc": {
+      "type": "application",
+      "root": "apps/recipe-svc",
+      "entryFile": "main",
+      "sourceRoot": "apps/recipe-svc/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/recipe-svc/tsconfig.app.json"
+      }
+    }
+  }
+}
