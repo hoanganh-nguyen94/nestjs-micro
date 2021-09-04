@@ -9,6 +9,8 @@ export class Recipe {
 
   description?: string;
 
+  ingredientIds?: string[];
+
   ingredients?: Ingredient[];
 
 }

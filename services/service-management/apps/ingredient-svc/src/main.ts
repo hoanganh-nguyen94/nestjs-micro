@@ -10,21 +10,18 @@ async function bootstrap() {
 
   Logger.log(`Config: ${host}:${port}`);
 
-
   const app = await NestFactory.create(IngredientSvcModule);
+
   app.connectMicroservice<MicroserviceOptions>({
     transport: Transport.TCP,
     options: {
       port,
-      host,
-      retryAttempts: 5,
-      retryDelay: 3000,
+      host
     }
   });
-
   await app.startAllMicroservices();
-  await app.listen(port, () => {
-    Logger.log(`INGREDIENT_SVC Listening at ${host}:${port}`);
+  await app.listen(+port + 100, () => {
+    Logger.log(`INGREDIENT_SVC Listening at ${host}:${Number(+port + 100)}`);
   });
 
 }

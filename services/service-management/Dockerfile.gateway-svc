@@ -1,0 +1,15 @@
+
+FROM node:12-alpine as bundle
+
+WORKDIR /usr/src/api-gateway
+
+COPY dist/apps/gateway-svc .
+COPY package.json .
+
+RUN npm install --production
+
+EXPOSE 3000
+EXPOSE 3100
+
+CMD ["node", "main.js"]
+

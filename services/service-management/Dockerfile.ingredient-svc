@@ -1,0 +1,16 @@
+
+FROM node:12-alpine as bundle
+
+WORKDIR /usr/src/api-ingredient
+
+COPY dist/apps/ingredient-svc .
+COPY package.json .
+
+RUN npm install --production
+
+EXPOSE 3101
+EXPOSE 3001
+
+CMD ["node", "main.js"]
+
+

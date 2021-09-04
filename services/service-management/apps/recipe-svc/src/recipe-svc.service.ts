@@ -9,9 +9,10 @@ const fakeData: Recipe[] = [
     name: 'Tasty Schnitzel',
     description: 'A super-tasty Schnitzel - just awesome!',
     imagePath: 'https://upload.wikimedia.org/wikipedia/commons/7/72/Schnitzel.JPG',
+    ingredientIds: ['2776da40-f07c-441c-aea7-55961ea15807', 'f93a0c7b-1a14-4de9-8073-7d7baf44d21b'],
     ingredients: [
-      { id: faker.datatype.uuid(), name: 'Meat', amount: 1 },
-      { id: faker.datatype.uuid(), name: 'French Fries', amount: 20 }
+      { id: '2776da40-f07c-441c-aea7-55961ea15807', name: 'Meat', amount: 1 },
+      { id: 'f93a0c7b-1a14-4de9-8073-7d7baf44d21b', name: 'French Fries', amount: 20 }
     ]
   },
   {
@@ -19,9 +20,10 @@ const fakeData: Recipe[] = [
     name: 'Big Fat Burger',
     description: 'What else you need to say?',
     imagePath: 'https://upload.wikimedia.org/wikipedia/commons/b/be/Burger_King_Angus_Bacon_%26_Cheese_Steak_Burger.jpg',
+    ingredientIds: ['2776da40-f07c-441c-aea7-55961ea15807', 'c3a658a6-0456-4e49-aa22-13ab91c6d32d'],
     ingredients: [
-      { id: faker.datatype.uuid(), name: 'Meat', amount: 1 },
-      { id: faker.datatype.uuid(), name: 'Buns', amount: 2 }
+      { id: '2776da40-f07c-441c-aea7-55961ea15807', name: 'Meat', amount: 1 },
+      { id: 'c3a658a6-0456-4e49-aa22-13ab91c6d32d', name: 'Buns', amount: 2 }
     ]
   }
 

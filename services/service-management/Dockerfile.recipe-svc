@@ -1,0 +1,16 @@
+
+FROM node:12-alpine as bundle
+
+WORKDIR /usr/src/api-recipe
+
+COPY dist/apps/recipe-svc .
+COPY package.json .
+
+RUN npm install --production
+
+EXPOSE 3002
+EXPOSE 3102
+
+CMD ["node", "main.js"]
+
+
