@@ -15,7 +15,8 @@ docker push hoanganhnguyen1994/ui-management:ingredient-svc-v1
 
 
 ```shell
-
+minikube start --nodes 2 --kubernetes-version=v1.20.7 --driver kvm2 --kvm-gpu
+#or
 kind create cluster --name istio --config k8s/kind/kind-config.yaml
 
 istioctl install --set profile=default -y

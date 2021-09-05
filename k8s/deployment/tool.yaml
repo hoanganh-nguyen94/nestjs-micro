@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tools
+  labels:
+    app: tools
+spec:
+  containers:
+    - name: tools
+      image: ichte/coretools
+      command:
+        - "/bin/bash"
+      args: ["-c", "while true; do echo 'busybox running'; sleep 10;done"]
+      imagePullPolicy: IfNotPresent
+  restartPolicy: Always

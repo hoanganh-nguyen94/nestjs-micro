@@ -1,0 +1,37 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ingredient-svc
+  labels:
+    app: ingredient-svc
+spec:
+  type: ClusterIP
+  #  clusterIP: 10.96.110.150
+  selector:
+    app: ingredient-svc
+  ports:
+    - port: 50051
+      targetPort: 50051
+      protocol: TCP
+
+---
+
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  labels:
+#    app: ingredient-svc
+#    version: v1
+#  name: node-ingredient-svc
+#  namespace: demo
+#spec:
+#  clusterIP: 10.96.175.45
+#  ports:
+#    - nodePort: 32047
+#      port: 50051
+#      protocol: TCP
+#      targetPort: 50051
+#  selector:
+#    app: ingredient-svc
+#    version: v1
+#  type: NodePort

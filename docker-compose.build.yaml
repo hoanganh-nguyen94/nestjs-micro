@@ -9,35 +9,16 @@ services:
       dockerfile: Dockerfile.gateway-svc
     ports:
       - "3000:3000"
-      - "3100:3100"
     environment:
-      GATEWAY_SVC_PORT: 3000
-      GATEWAY_SVC_HOST: "gateway-svc"
-      INGREDIENT_SVC_PORT: 3001
-      INGREDIENT_SVC_HOST: "ingredient-svc"
-      RECIPE_SVC_PORT: 3002
-      RECIPE_SVC_HOST: "recipe-svc"
+      INGREDIENT_SVC_URL: "ingredient-svc:50051"
   ingredient-svc:
     image: "ingredient-svc"
     container_name: "ingredient-svc"
     build:
       context: "./services/service-management"
       dockerfile: Dockerfile.ingredient-svc
-    ports:
-      - "3101:3101"
-      - "3001:3001"
+    expose:
+      - "50051"
     environment:
-      INGREDIENT_SVC_PORT: 3001
-      INGREDIENT_SVC_HOST: "ingredient-svc"
-  recipe-svc:
-    image: "recipe-svc"
-    container_name: "recipe-svc"
-    build:
-      context: "./services/service-management"
-      dockerfile: Dockerfile.recipe-svc
-    ports:
-      - "3102:3102"
-      - "3002:3002"
-    environment:
-      RECIPE_SVC_PORT: 3002
-      RECIPE_SVC_HOST: "recipe-svc"
+      GRPC_HOST: "0.0.0.0"
+      GRPC_PORT: "50051"

@@ -1,0 +1,18 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: recipe-svc
+  labels:
+    app: recipe-svc
+spec:
+  type: ClusterIP
+  selector:
+    app: recipe-svc
+  ports:
+    - protocol: TCP
+      name: http
+      port: 3002
+      targetPort: 3002
+---
+

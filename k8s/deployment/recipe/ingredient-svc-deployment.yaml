@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recipe-svc
+  labels:
+    app: recipe-svc
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app: recipe-svc
+      version: v1
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: recipe-svc
+        version: v1
+    spec:
+      containers:
+        - env:
+            - name: RECIPE_SVC_PORT
+              value: "3002"
+            - name: RECIPE_SVC_HOST
+              value: "simple.recipe"
+          name: gateway-svc
+          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3002
