@@ -1,8 +1,8 @@
 import { Controller, Get, Logger } from '@nestjs/common';
 import { IngredientSvcService } from './ingredient-svc.service';
-import { MessagePattern } from '@nestjs/microservices';
-import { IngredientsArgs } from '../dto/ingredients.args';
-import { Ingredient } from '../models/ingredient.model';
+import { GrpcMethod } from '@nestjs/microservices';
+import { IngredientsArgs } from './dto/ingredients.args';
+import { Ingredient } from './models/ingredient.model';
 
 @Controller()
 export class IngredientSvcController {
@@ -14,15 +14,15 @@ export class IngredientSvcController {
 
 
   @Get('ingredients')
-  @MessagePattern({ cmd: 'LIST_INGREDIENT' })
-  ingredients(ingredientsArgs: IngredientsArgs): Ingredient[] {
+  @GrpcMethod('IngredientService', 'findAll')
+  ingredients(ingredientsArgs: IngredientsArgs): { result: Ingredient[] } {
     this.logger.log({ ingredientsArgs });
-    return this.svc.findAll(ingredientsArgs);
+    return { result: this.svc.findAll(ingredientsArgs) };
   }
 
-  @MessagePattern({ cmd: 'INGREDIENT' })
-  ingredient(id: string): Ingredient {
-    return this.svc.findOneById(id);
+  @GrpcMethod('IngredientService', 'findOneById')
+  ingredient(id: string): { result: Ingredient } {
+    return { result: this.svc.findOneById(id) };
   }
 
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Ingredient } from '../models/ingredient.model';
-import { IngredientsArgs } from '../dto/ingredients.args';
+import { Ingredient } from './models/ingredient.model';
+import { IngredientsArgs } from './dto/ingredients.args';
 
 const fakeData: Ingredient[] = [
   { id: "896d244f-8d0b-4ff8-a1ee-aab922c49876", name: 'Tomato' },

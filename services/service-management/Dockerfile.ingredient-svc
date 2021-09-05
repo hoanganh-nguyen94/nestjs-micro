@@ -8,9 +8,7 @@ COPY package.json .
 
 RUN npm install --production
 
-EXPOSE 3101
-EXPOSE 3001
+EXPOSE 50051
 
 CMD ["node", "main.js"]
-
 

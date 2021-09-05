@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { Logger } from '@nestjs/common';
-import { ConfigService } from '../config/config.service';
+import { ConfigService } from './config/config.service';
 import { RecipeSvcModule } from './recipe-svc.module';
 
 async function bootstrap() {

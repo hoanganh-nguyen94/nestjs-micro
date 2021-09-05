@@ -1,7 +1,7 @@
 import { Controller, Get, Logger } from '@nestjs/common';
 import { MessagePattern } from '@nestjs/microservices';
-import { IngredientsArgs } from '../../ingredient-svc/dto/ingredients.args';
-import { Ingredient } from '../../ingredient-svc/models/ingredient.model';
+import { IngredientsArgs } from '../../ingredient-svc/src/dto/ingredients.args';
+import { Ingredient } from '../../ingredient-svc/src/models/ingredient.model';
 import { RecipeSvcService } from './recipe-svc.service';
 
 @Controller()

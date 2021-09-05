@@ -4,7 +4,7 @@ import { PubSub } from 'apollo-server-express';
 import { IngredientService } from './ingredient.service';
 import { Ingredient } from './models/ingredient.model';
 import { IngredientsArgs } from './dto/ingredients.args';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 
 const pubSub = new PubSub();
 
@@ -24,7 +24,7 @@ export class IngredientResolver {
 
   @Query(returns => [Ingredient])
   ingredients(@Args() ingredientsArgs: IngredientsArgs): Observable<Ingredient[]> {
-    return this.ingredientService.findAll(ingredientsArgs);
+    return this.ingredientService.findAll(ingredientsArgs).pipe(map(x => x?.result));
   }
 
 }

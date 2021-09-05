@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { DateScalar } from '../common/scalars/date.scalar';
 import { RecipeResolver } from './recipe.resolver';
 import { RecipeService } from './recipe.service';
-import { ConfigService } from '../../config/config.service';
+import { ConfigService } from '../config/config.service';
 import { ClientProxyFactory } from '@nestjs/microservices';
 
 @Module({

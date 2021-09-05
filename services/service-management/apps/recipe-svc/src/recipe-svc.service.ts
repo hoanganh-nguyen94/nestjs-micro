@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import * as faker from 'faker';
-import { Recipe } from '../models/recipe.model';
-import { RecipesArgs } from '../dto/recipes.args';
+import { Recipe } from './models/recipe.model';
+import { RecipesArgs } from './dto/recipes.args';
 
 const fakeData: Recipe[] = [
   {

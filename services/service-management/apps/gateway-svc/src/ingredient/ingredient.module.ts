@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 import { IngredientResolver } from './ingredient.resolver';
 import { IngredientService } from './ingredient.service';
-import { ClientProxyFactory } from '@nestjs/microservices';
-import { ConfigService } from '../../config/config.service';
+import { ClientGrpcProxy, ClientProxyFactory } from '@nestjs/microservices';
+import { ConfigService } from '../config/config.service';
 
 @Module({
   imports: [],
@@ -12,7 +12,7 @@ import { ConfigService } from '../../config/config.service';
     ConfigService,
     {
       provide: 'INGREDIENT_SVC',
-      useFactory: (configService: ConfigService) => {
+      useFactory: (configService: ConfigService): ClientGrpcProxy => {
         const svcOptions = configService.get('ingredientSvc');
         return ClientProxyFactory.create(svcOptions);
       },
