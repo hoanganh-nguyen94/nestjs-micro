@@ -27,7 +27,7 @@ spec:
             - name: RECIPE_SVC_PORT
               value: "3002"
             - name: RECIPE_SVC_HOST
-              value: "simple.recipe"
+              value: "0.0.0.0"
           name: gateway-svc
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v1
           imagePullPolicy: Always

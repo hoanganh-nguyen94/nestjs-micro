@@ -11,6 +11,7 @@ services:
       - "3000:3000"
     environment:
       INGREDIENT_SVC_URL: "ingredient-svc:50051"
+      RECIPE_SVC_URL: "recipe-svc:50052"
   ingredient-svc:
     image: "ingredient-svc"
     container_name: "ingredient-svc"
@@ -21,4 +22,15 @@ services:
       - "50051"
     environment:
       GRPC_HOST: "0.0.0.0"
-      GRPC_PORT: "50051"
+      GRPC_PORT: "50050"
+  recipe-svc:
+    image: "recipe-svc"
+    container_name: "recipe-svc"
+    build:
+      context: "./services/service-management"
+      dockerfile: Dockerfile.recipe-svc
+    expose:
+      - "50052"
+    environment:
+      GRPC_HOST: "0.0.0.0"
+      GRPC_PORT: "50050"

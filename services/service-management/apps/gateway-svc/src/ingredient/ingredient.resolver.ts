@@ -14,8 +14,8 @@ export class IngredientResolver {
   }
 
   @Query(returns => Ingredient)
-   ingredient(@Args('id') id: string): Observable<Ingredient> {
-    const ingredient =  this.ingredientService.findOneById(id);
+  ingredient(@Args('id') id: string): Observable<Ingredient> {
+    const ingredient = this.ingredientService.findOneById(id);
     if (!ingredient) {
       throw new NotFoundException(id);
     }

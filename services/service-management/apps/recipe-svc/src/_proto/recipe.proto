@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+import "ingredient.proto";
+
+package recipe;
+
+
+message Id {
+  string id = 1;
+}
+
+message Query {
+  int32 skip = 1;
+  int32 take = 2;
+}
+
+
+
+message Recipe {
+  string id = 1;
+  string name = 2;
+  string imagePath = 3;
+  string description = 4;
+  repeated string ingredientIds = 5;
+  repeated ingredient.Ingredient ingredients = 6;
+}
+
+
+message FindRecipePayload {
+  repeated Recipe result = 1;
+}
+
+service RecipeService {
+  rpc findAll (Query) returns (FindRecipePayload) {}
+  rpc findOneById (Id) returns (Recipe) {}
+
+}
+

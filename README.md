@@ -15,7 +15,6 @@ docker push hoanganhnguyen1994/ui-management:ingredient-svc-v1
 
 
 ```shell
-minikube start --nodes 2 --kubernetes-version=v1.20.7 --driver kvm2 --kvm-gpu
 #or
 kind create cluster --name istio --config k8s/kind/kind-config.yaml
 
@@ -43,8 +42,11 @@ kubectl proxy
 ### Deploy
 ```shell
 
-kubectl apply -f k8s/deployment/gateway
-kubectl apply -f k8s/deployment/ingredient
-kubectl apply -f k8s/deployment/recipe
+kubectl create ns demo
+kubectl label namespace/demo istio-injection=enabled
+
+kubectl -n demo apply -f k8s/deployment/gateway
+kubectl -n demo apply -f k8s/deployment/ingredient
+kubectl -n demo apply -f k8s/deployment/recipe
 
 ```

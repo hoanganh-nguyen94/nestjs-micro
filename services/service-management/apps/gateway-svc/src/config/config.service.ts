@@ -24,10 +24,17 @@ export class ConfigService {
       }
     };
     this.envConfig.recipeSvc = {
-      transport: Transport.TCP,
+      transport: Transport.GRPC,
       options: {
-        port: process.env.RECIPE_SVC_PORT || 3002,
-        host: process.env.RECIPE_SVC_HOST || 'localhost'
+        url: process.env.RECIPE_SVC_URL,
+        package: 'recipe',
+        protoPath: join(__dirname, './_proto/recipe.proto'),
+        loader: {
+          keepCase: true,
+          enums: String,
+          oneofs: true,
+          arrays: true
+        }
       }
     };
   }

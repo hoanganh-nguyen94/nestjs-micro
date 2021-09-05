@@ -36,7 +36,9 @@
       "entryFile": "main",
       "sourceRoot": "apps/recipe-svc/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/recipe-svc/tsconfig.app.json"
+        "tsConfigPath": "apps/recipe-svc/tsconfig.app.json",
+        "assets": ["**/*.proto"],
+        "watchAssets": true
       }
     }
   }
