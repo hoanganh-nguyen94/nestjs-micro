@@ -1,18 +1,5 @@
 # UiManagementSpace
 
-```shell
-
-docker tag gateway-svc:latest hoanganhnguyen1994/ui-management:gateway-svc-v1
-docker tag ingredient-svc:latest hoanganhnguyen1994/ui-management:ingredient-svc-v1
-docker tag recipe-svc:latest hoanganhnguyen1994/ui-management:recipe-svc-v1
-
-docker push hoanganhnguyen1994/ui-management:gateway-svc-v1
-docker push hoanganhnguyen1994/ui-management:recipe-svc-v1
-docker push hoanganhnguyen1994/ui-management:ingredient-svc-v1
-
-```
-
-
 
 ```shell
 kind create cluster --name istio --config k8s/kind/kind-config.yaml
@@ -56,5 +43,6 @@ kubectl label namespace/demo istio-injection=enabled
 kubectl -n demo apply -f k8s/deployment/gateway
 kubectl -n demo apply -f k8s/deployment/ingredient
 kubectl -n demo apply -f k8s/deployment/recipe
+kubectl -n demo apply -f k8s/deployment/ui
 
 ```

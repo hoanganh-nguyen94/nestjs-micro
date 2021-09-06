@@ -34,3 +34,13 @@ services:
     environment:
       GRPC_HOST: "0.0.0.0"
       GRPC_PORT: "50050"
+  ui-management-v2:
+    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
+    container_name: "ui-management-v2"
+    build:
+      context: "./ui/ui-management-v2"
+      dockerfile: Dockerfile.recipe-svc
+    ports:
+      - "5000:80"
+    environment:
+      API_URL: "http://simple.web"

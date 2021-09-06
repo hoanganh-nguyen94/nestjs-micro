@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiURL: `http://simple.web`,
+  apiURL: (window as any)["envconfig"]["apiurl"]
 
 };
