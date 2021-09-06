@@ -23,9 +23,12 @@ spec:
         version: v2
     spec:
       containers:
-        - name: simple-ui
+        - env:
+            - name: API_URL
+              value: http://simple.web
+          name: simple-ui
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
-          imagePullPolicy : Always
+          imagePullPolicy: Always
           resources:
             requests:
               cpu: 50m
