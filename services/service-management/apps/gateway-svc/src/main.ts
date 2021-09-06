@@ -7,13 +7,11 @@ async function bootstrap() {
   const port = new ConfigService().get('port');
   const host = new ConfigService().get('host');
 
-  const app = await NestFactory.create(GatewaySvcModule, {
-    cors: {
-      origin: '*',
-      credentials: true
-    }
+  const app = await NestFactory.create(GatewaySvcModule);
+  app.enableCors({
+    origin: '*',
+    credentials: true,
   });
-
   return app.listen((3000), () => {
     Logger.log(`GATEWAY_SVC Listening at ${host}:${3000}`);
   });

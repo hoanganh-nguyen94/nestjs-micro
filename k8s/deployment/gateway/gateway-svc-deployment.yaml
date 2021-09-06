@@ -31,7 +31,7 @@ spec:
             - name: RECIPE_SVC_URL
               value: recipe-svc.demo.svc.cluster.local:50052
           name: gateway-svc
-          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
+          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1
           imagePullPolicy: Always
           resources:
             requests:

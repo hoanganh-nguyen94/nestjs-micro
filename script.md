@@ -18,6 +18,12 @@ docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:simple-app
 
+
+docker build -t registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1 -f Dockerfile.gateway-svc .
+docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1
+
+
+
 ```
 
 kubectl create ns demo
@@ -29,4 +35,4 @@ kubectl -n demo apply -f k8s/deployment/recipe
 
 kubectl apply -f k8s/deployment/tool.yaml
 
-kubectl  apply -f k8s/deployment/gateway
+kubectl -n demo delete -f k8s/deployment/gateway
