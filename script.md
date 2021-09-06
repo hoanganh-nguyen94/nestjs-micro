@@ -2,14 +2,13 @@
 
 docker tag gateway-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
 docker tag ingredient-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v2
-docker tag recipe-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v1
+docker tag recipe-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v2
 
-docker login registry.gitlab.com -u secret-push -p secret
+docker login registry.gitlab.com -u secret-push -p k2CgWBdeosBz9mqYzxVt
 
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v2
-
-docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v1
+docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v2
 
 ```
 
