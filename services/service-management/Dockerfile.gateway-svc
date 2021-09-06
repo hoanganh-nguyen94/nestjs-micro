@@ -1,5 +1,5 @@
 
-FROM node:12-alpine as bundle
+FROM registry.gitlab.com/hcg-openhub/hcg-hub/hcg-node:14-alpine as bundle
 
 WORKDIR /usr/src/api-gateway
 
