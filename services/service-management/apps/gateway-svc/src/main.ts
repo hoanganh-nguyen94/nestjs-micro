@@ -8,29 +8,13 @@ async function bootstrap() {
   const host = new ConfigService().get('host');
 
   const app = await NestFactory.create(GatewaySvcModule);
-  // app.use(
-  //   cors({
-  //     origin: '*',
-  //     credentials: true
-  //   })
-  // )
-  // await app.listen(3000);
 
-  // app.connectMicroservice({
-  //   transport: Transport.TCP,
-  //   options: {
-  //     retryAttempts: 5,
-  //     retryDelay: 3000,
-  //     host,
-  //     port,
-  //   },
-  // });
-  //
-  // await app.startAllMicroservices();
-  //
-  // await app.listen((+port + 100), () => {
-  //   Logger.log(`GATEWAY_SVC Listening at ${host}:${(+port + 100)}`);
-  // });
+  app.enableCors({
+    origin: '*',
+    methods: 'GET, PUT, POST, DELETE',
+    allowedHeaders: 'Content-Type, Authorization'
+  });
+
   return app.listen((3000), () => {
     Logger.log(`GATEWAY_SVC Listening at ${host}:${3000}`);
   });
