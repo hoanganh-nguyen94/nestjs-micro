@@ -1,0 +1,21 @@
+schema:
+  - http://localhost:3000/graphql
+overwrite: true
+#watch : true
+config:
+  noNamespaces: true
+generates:
+  ./src/app/graphql/generated/graphql.ts:
+    plugins:
+      - typescript:
+          skipTypename: true
+          avoidOptionals: false
+          declarationKind: 'interface'
+  ./src/app/graphql/generated/queries.ts:
+    documents: src/app/graphql/queries/**/*.graphql
+    config:
+      namePrefix: 'Query'
+      nameSuffix: 'Docs'
+      namingConvention: keep
+    plugins:
+      - typescript-document-nodes

@@ -1,0 +1,9 @@
+query Ingredient($id:String!)
+{
+  response: ingredient(id: $id)
+  {
+    id
+    name
+  }
+
+}

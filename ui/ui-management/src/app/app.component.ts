@@ -34,7 +34,7 @@ export class AppComponent {
 
   }
 
-  setCookie(versionNumber: number) {
+  setVersion(versionNumber: number) {
     this.cookieService.set('version', `v${versionNumber}`);
     window.location.reload();
   }

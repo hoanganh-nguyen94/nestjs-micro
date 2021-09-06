@@ -1,0 +1,9 @@
+query Ingredients($skip: Int, $take: Int)
+{
+  response: ingredients(skip: $skip , take: $take)
+  {
+    id
+    name
+  }
+
+}
