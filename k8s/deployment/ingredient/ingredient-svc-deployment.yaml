@@ -27,7 +27,7 @@ spec:
             - name: GRPC_HOST
               value: "0.0.0.0"
             - name: GRPC_PORT
-              value: "50051"
+              value: "50050"
           name: gateway-svc
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v2
           imagePullPolicy: Always
@@ -40,5 +40,5 @@ spec:
               memory: 300Mi
           ports:
             - name: http
-              containerPort: 50051
+              containerPort: 50052
               protocol: TCP

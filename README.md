@@ -15,7 +15,6 @@ docker push hoanganhnguyen1994/ui-management:ingredient-svc-v1
 
 
 ```shell
-#or
 kind create cluster --name istio --config k8s/kind/kind-config.yaml
 
 istioctl install --set profile=default -y
@@ -37,6 +36,15 @@ kubectl create clusterrolebinding default-admin --clusterrole cluster-admin --se
 token=$(kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='default')].data.token}"|base64 --decode)
 echo $token > token.txt
 kubectl proxy
+
+```
+
+---
+
+### [Setup kiali](http://127.0.0.1:20001)
+```shell
+kubectl apply -f k8s/istio-1.10.2/samples/addons
+kubectl port-forward svc/kiali -n istio-system 20001
 ```
 
 ### Deploy
