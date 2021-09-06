@@ -34,3 +34,15 @@ services:
     environment:
       GRPC_HOST: "0.0.0.0"
       GRPC_PORT: "50050"
+  ui-management:
+    image: "ui-management-v1"
+    container_name: "ui-management-v1"
+    build:
+      context: "./ui/ui-management"
+      dockerfile: Dockerfile
+  ui-management-v2:
+    image: "ui-management-v2"
+    container_name: "ui-management-v2"
+    build:
+      context: "./ui/ui-management-v2"
+      dockerfile: Dockerfile
