@@ -11,6 +11,7 @@ docker tag simple-app:latest registry.gitlab.com/hoanganhnguyen1994/ui-managemen
 
 docker login registry.gitlab.com -u secret-push -p k2CgWBdeosBz9mqYzxVt
 
+docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v2
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v2
@@ -19,8 +20,8 @@ docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:simple-app
 
 
-docker build -t registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1 -f Dockerfile.gateway-svc .
-docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1
+docker build -t registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2 -f Dockerfile.gateway-svc-v2 .
+docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
 
 
 

@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: gateway-svc
+  name: gateway-svc-v2
   labels:
     app: gateway-svc
-    version: v1
+    version: v2
 spec:
   selector:
     matchLabels:
       app: gateway-svc
-      version: v1
+      version: v2
   replicas: 1
   strategy:
     type: RollingUpdate
@@ -20,7 +20,7 @@ spec:
     metadata:
       labels:
         app: gateway-svc
-        version: v1
+        version: v2
     spec:
       containers:
         - env:
@@ -31,7 +31,7 @@ spec:
             - name: RECIPE_SVC_URL
               value: recipe-svc.demo.svc.cluster.local:50052
           name: gateway-svc
-          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1
+          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
           imagePullPolicy: Always
           resources:
             requests:

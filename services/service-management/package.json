@@ -8,10 +8,12 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build:gateway": "nest build gateway-svc",
+    "build:gateway-v2": "nest build gateway-svc-v2",
     "build:ingredient": "nest build ingredient-svc",
     "build:recipe": "nest build recipe-svc",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start-gateway": "nest start gateway-svc",
+    "start:gateway-v2": "nest start gateway-svc-v2",
     "start-ingredient": "nest start ingredient-svc",
     "start-recipe": "nest start recipe-svc",
     "start:dev:gateway": "nest start gateway-svc --watch",

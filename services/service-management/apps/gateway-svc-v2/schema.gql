@@ -1,0 +1,29 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+"""Date custom scalar type"""
+scalar Date
+
+type Ingredient {
+  amount: Float
+  id: ID!
+  name: String!
+}
+
+type Query {
+  ingredient(id: String!): Ingredient!
+  ingredients(skip: Int = 0, take: Int = 25): [Ingredient!]!
+  recipe(id: String!): Recipe!
+  recipes(skip: Int = 0, take: Int = 25): [Recipe!]!
+  version: String!
+}
+
+type Recipe {
+  creationDate: Date!
+  description: String
+  id: ID!
+  imagePath: String
+  ingredients: [String!]!
+  name: String!
+}

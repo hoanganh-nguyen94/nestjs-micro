@@ -15,7 +15,9 @@
       "sourceRoot": "apps/gateway-svc/src",
       "compilerOptions": {
         "tsConfigPath": "apps/gateway-svc/tsconfig.app.json",
-        "assets": ["**/*.proto"],
+        "assets": [
+          "**/*.proto"
+        ],
         "watchAssets": true
       }
     },
@@ -26,7 +28,9 @@
       "sourceRoot": "apps/ingredient-svc/src",
       "compilerOptions": {
         "tsConfigPath": "apps/ingredient-svc/tsconfig.app.json",
-        "assets": ["**/*.proto"],
+        "assets": [
+          "**/*.proto"
+        ],
         "watchAssets": true
       }
     },
@@ -37,7 +41,22 @@
       "sourceRoot": "apps/recipe-svc/src",
       "compilerOptions": {
         "tsConfigPath": "apps/recipe-svc/tsconfig.app.json",
-        "assets": ["**/*.proto"],
+        "assets": [
+          "**/*.proto"
+        ],
+        "watchAssets": true
+      }
+    },
+    "gateway-svc-v2": {
+      "type": "application",
+      "root": "apps/gateway-svc-v2",
+      "entryFile": "main",
+      "sourceRoot": "apps/gateway-svc-v2/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/gateway-svc-v2/tsconfig.app.json",
+        "assets": [
+          "**/*.proto"
+        ],
         "watchAssets": true
       }
     }

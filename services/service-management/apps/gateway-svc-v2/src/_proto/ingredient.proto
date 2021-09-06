@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+
+package ingredient;
+
+
+message Id {
+  string id = 1;
+}
+
+message Query {
+  int32 skip = 1;
+  int32 take = 2;
+}
+
+
+
+message Ingredient {
+  string id = 1;
+  string name = 2;
+  int32 amount = 3;
+}
+//
+//message IngredientEdge {
+//  Ingredient node = 1;
+//}
+
+message FindIngredientPayload {
+  repeated Ingredient result = 1;
+}
+
+service IngredientService {
+  rpc findAll (Query) returns (FindIngredientPayload) {}
+  rpc findOneById (Id) returns (Ingredient) {}
+
+}
