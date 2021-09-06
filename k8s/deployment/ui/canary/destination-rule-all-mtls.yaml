@@ -4,7 +4,7 @@ kind: DestinationRule
 metadata:
   name: simple-ui
 spec:
-  host: simple-ui
+  host: simple-ui.demo.svc.cluster.local
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL
