@@ -19,7 +19,8 @@ import { RecipeModule } from './recipe/recipe.module';
       playground: true,
       installSubscriptionHandlers: true,
       autoSchemaFile: 'apps/gateway-svc/schema.gql',
-      sortSchema: true
+      sortSchema: true,
+      cors: false,
     })
   ],
   controllers: [GatewaySvcController],
