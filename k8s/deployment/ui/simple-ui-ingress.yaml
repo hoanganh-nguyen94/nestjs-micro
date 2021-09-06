@@ -4,13 +4,15 @@ kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  #    nginx.ingress.kubernetes.io/rewrite-target: /$2
   name: simple-ui
 spec:
   rules:
     - host: simple.ui
       http:
         paths:
-          - path: /
+          - path: "/"
             backend:
               serviceName: simple-ui
               servicePort: 80
