@@ -44,5 +44,6 @@ kubectl -n demo apply -f k8s/deployment/gateway
 kubectl -n demo apply -f k8s/deployment/ingredient
 kubectl -n demo apply -f k8s/deployment/recipe
 kubectl -n demo apply -f k8s/deployment/ui
+kubectl -n demo apply -f k8s/deployment/ui/canary
 
 ```

@@ -25,7 +25,7 @@ spec:
       containers:
         - env:
             - name: API_URL
-              value: http://simple.web
+              value: tcp://gateway-svc.demo.svc.cluster.local:3000
           name: simple-ui
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
           imagePullPolicy: Always

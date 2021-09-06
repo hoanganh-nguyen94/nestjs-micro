@@ -4,7 +4,7 @@ metadata:
   name: simple-ui
 spec:
   hosts:
-    - simple-ui
+    - simple.ui
   http:
     - match:
         - uri:
