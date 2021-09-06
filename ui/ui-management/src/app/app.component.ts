@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { VersionApisService } from './apis/version.apis.service';
 import { IngredientApisService } from './apis/ingredient.apis.service';
 import { RecipeApisService } from './apis/recipe.apis.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent {
   constructor(
     private versionSvc: VersionApisService,
     private ingredientSvc: IngredientApisService,
-    private recipeSvc: RecipeApisService
+    private recipeSvc: RecipeApisService,
+    private cookieService: CookieService
   ) {
   }
 
@@ -31,4 +33,10 @@ export class AppComponent {
     this.recipeSvc.recipes().subscribe(result => this.result = result);
 
   }
+
+  setCookie(versionNumber: number) {
+    this.cookieService.set('version', `v${versionNumber}`);
+    window.location.reload();
+  }
 }
+

@@ -20,28 +20,6 @@ export interface Ingredient {
   name: Scalars['String'];
 }
 
-export interface Mutation {
-  addRecipe: Recipe;
-  removeRecipe: Scalars['Boolean'];
-}
-
-
-export interface MutationAddRecipeArgs {
-  newRecipeData: NewRecipeInput;
-}
-
-
-export interface MutationRemoveRecipeArgs {
-  id: Scalars['String'];
-}
-
-export interface NewRecipeInput {
-  description?: Maybe<Scalars['String']>;
-  imagePath?: Maybe<Scalars['String']>;
-  ingredients: Array<Scalars['String']>;
-  title: Scalars['String'];
-}
-
 export interface Query {
   ingredient: Ingredient;
   ingredients: Array<Ingredient>;
@@ -79,8 +57,4 @@ export interface Recipe {
   imagePath?: Maybe<Scalars['String']>;
   ingredients: Array<Scalars['String']>;
   name: Scalars['String'];
-}
-
-export interface Subscription {
-  recipeAdded: Recipe;
 }
