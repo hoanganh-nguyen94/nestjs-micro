@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: simple-ui
+  name: simple-ui-v1
   labels:
     app: simple-ui
     version: v1

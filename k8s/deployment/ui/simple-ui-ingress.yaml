@@ -12,6 +12,6 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: simple.ui
+              serviceName: simple-ui
               servicePort: 80
 
