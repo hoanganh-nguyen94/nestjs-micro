@@ -27,9 +27,9 @@ spec:
             - name: GATEWAY_SVC_PORT
               value: "3000"
             - name: INGREDIENT_SVC_URL
-              value: ingredient-svc.demo.svc.cluster.local:50051
+              value: ingredient-svc.demo.svc.cluster.local:80
             - name: RECIPE_SVC_URL
-              value: recipe-svc.demo.svc.cluster.local:50052
+              value: recipe-svc.demo.svc.cluster.local:80
           name: gateway-svc
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
           imagePullPolicy: Always

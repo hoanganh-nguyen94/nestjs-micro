@@ -40,5 +40,5 @@ spec:
               memory: 300Mi
           ports:
             - name: http
-              containerPort: 50052
+              containerPort: 50051
               protocol: TCP
