@@ -22,7 +22,7 @@ kind: DestinationRule
 metadata:
   name: gateway-svc
 spec:
-  host: gateway-svc
+  host: gateway-svc.demo.svc.cluster.local
   trafficPolicy:
     tls:
       mode: ISTIO_MUTUAL

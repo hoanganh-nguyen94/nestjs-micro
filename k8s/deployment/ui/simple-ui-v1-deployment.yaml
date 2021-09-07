@@ -25,7 +25,7 @@ spec:
       containers:
         - env:
             - name: API_URL
-              value: http://api.simple.ui
+              value: http://simple.ui/api
           name: simple-ui
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v1
           imagePullPolicy: Always
