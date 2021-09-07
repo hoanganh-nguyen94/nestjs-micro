@@ -12,7 +12,7 @@ spec:
   ports:
     - name: http
       port: 80
-      targetPort: http
+      targetPort: 3000
       protocol: TCP
 
 

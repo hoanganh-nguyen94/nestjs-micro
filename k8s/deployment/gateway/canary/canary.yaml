@@ -4,7 +4,7 @@ metadata:
   name: gateway-svc
 spec:
   hosts:
-    - api.simple.ui
+    - gateway-svc
   http:
     - match:
         - uri:

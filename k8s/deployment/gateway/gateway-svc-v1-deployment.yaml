@@ -26,14 +26,12 @@ spec:
         - env:
             - name: GATEWAY_SVC_PORT
               value: "3000"
-            - name: INGREDIENT_SVC_URL
-              value: ingredient-svc.demo.svc.cluster.local:50051
-            - name: RECIPE_SVC_URL
-              value: recipe-svc.demo.svc.cluster.local:50052
+#            - name: INGREDIENT_SVC_URL
+#              value: ingredient-svc.demo.svc.cluster.local:50051
+#            - name: RECIPE_SVC_URL
+#              value: recipe-svc.demo.svc.cluster.local:50052
           name: gateway-svc
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1
           imagePullPolicy: Always
           ports:
-            - name: http
-              containerPort: 3000
-              protocol: TCP
+            - containerPort: 3000
