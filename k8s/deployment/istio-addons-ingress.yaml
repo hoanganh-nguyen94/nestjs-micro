@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: istio-system
+  namespace: istio-system
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: my-istio-dashboard.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              serviceName: grafana
+              servicePort: 3000
+    - host: my-istio-tracing.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              serviceName: tracing
+              servicePort: 9411
+    - host: my-kiali.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              serviceName: kiali
+              servicePort: 20001

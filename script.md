@@ -39,3 +39,5 @@ kubectl -n demo apply -f k8s/deployment/recipe
 kubectl apply -f k8s/deployment/tool.yaml
 
 kubectl -n demo delete -f k8s/deployment/gateway
+
+While ($true) { curl -UseBasicParsing http://simple.ui/; Start-Sleep -Seconds 3;}

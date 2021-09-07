@@ -31,6 +31,7 @@ kubectl proxy
 ### [Setup kiali](http://127.0.0.1:20001)
 ```shell
 kubectl apply -f k8s/istio-1.10.2/samples/addons
+kubectl apply -f k8s/istio-1.10.2/samples/addons/extras/
 kubectl port-forward svc/kiali -n istio-system 20001
 ```
 

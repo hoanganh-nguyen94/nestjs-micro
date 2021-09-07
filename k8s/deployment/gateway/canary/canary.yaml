@@ -6,21 +6,12 @@ spec:
   hosts:
     - gateway-svc
   http:
-    - match:
-        - uri:
-            prefix: /
-          headers:
-            cookie:
-              regex: ^(.*?;)?(version=v2)(;.*)?$
-      route:
-        - destination:
-            host: gateway-svc
-            subset: v2
-    - match:
-        - uri:
-            prefix: /
-      route:
+    - route:
         - destination:
             host: gateway-svc
             subset: v1
-
+          weight: 80
+        - destination:
+            host: gateway-svc
+            subset: v2
+          weight: 20

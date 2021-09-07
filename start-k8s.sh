@@ -20,4 +20,7 @@ kubectl -n demo apply -f k8s/deployment/ui
 kubectl -n demo apply -f k8s/deployment/ui/canary
 kubectl -n demo get all
 
+kubectl apply -f k8s/istio-1.10.2/samples/addons
+kubectl apply -f k8s/deployment/istio-addons-ingress.yaml
+
 kubectl -n ingress-nginx port-forward deploy/nginx-ingress-controller 80
