@@ -51,11 +51,10 @@ metadata:
   name: gateway-svc
 spec:
   rules:
-    - host: "api.simple.ui"
+    - host: api.simple.ui
       http:
         paths:
           - path: /
             backend:
               serviceName: gateway-svc
-              servicePort: 3000
-            pathType: ImplementationSpecific
+              servicePort: http

@@ -33,13 +33,6 @@ spec:
           name: gateway-svc
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
           imagePullPolicy: Always
-          resources:
-            requests:
-              cpu: 50m
-              memory: 150Mi
-            limits:
-              cpu: 100m
-              memory: 300Mi
           ports:
             - name: http
               containerPort: 3000

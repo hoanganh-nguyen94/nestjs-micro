@@ -23,6 +23,8 @@ docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:simple-app
 docker build -t registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2 -f Dockerfile.gateway-svc-v2 .
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
 
+docker build -t registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1 -f Dockerfile.gateway-svc .
+docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1
 
 
 ```
