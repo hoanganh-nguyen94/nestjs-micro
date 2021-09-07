@@ -4,9 +4,6 @@ metadata:
   name: gateway-svc
 spec:
   host: gateway-svc
-  trafficPolicy:
-    tls:
-      mode: ISTIO_MUTUAL
   subsets:
     - name: v1
       labels:
