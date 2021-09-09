@@ -1,8 +1,9 @@
 import { Module } from '@nestjs/common';
 import { IngredientResolver } from './ingredient.resolver';
-import { IngredientService } from './ingredient.service';
 import { ClientGrpcProxy, ClientProxyFactory } from '@nestjs/microservices';
 import { ConfigService } from '../config/config.service';
+import { IngredientService } from './ingredient.services';
+import { IngredientController } from './ingredient.controller';
 
 @Module({
   imports: [],
@@ -18,8 +19,9 @@ import { ConfigService } from '../config/config.service';
       },
       inject: [ConfigService]
     }
+  ],
+  controllers: [IngredientController],
 
-  ]
 })
 export class IngredientModule {
 }

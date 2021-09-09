@@ -21,8 +21,8 @@ export class IngredientSvcController {
   }
 
   @GrpcMethod('IngredientService', 'findOneById')
-  ingredient(id: string): { result: Ingredient } {
-    return { result: this.svc.findOneById(id) };
+  ingredient(args: { id: string }): { result: Ingredient } {
+    return { result: this.svc.findOneById(args.id) };
   }
 
 }

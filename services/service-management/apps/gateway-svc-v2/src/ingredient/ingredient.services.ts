@@ -18,13 +18,12 @@ export class IngredientService implements OnModuleInit {
     this.svc = this.client.getService('IngredientService');
   }
 
-  findOneById(id: string): Observable<Ingredient> {
-    return this.svc.findOneById(id);
+  findOneById(id: string): Observable<{ result: Ingredient }> {
+    return this.svc.findOneById({ id });
   }
 
   findAll(ingredientsArgs: IngredientsArgs): Observable<{ result: Ingredient[] }> {
     return this.svc.findAll(ingredientsArgs);
-
   }
 
 }

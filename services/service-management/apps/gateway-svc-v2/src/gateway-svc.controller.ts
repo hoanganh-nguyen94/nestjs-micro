@@ -14,4 +14,9 @@ export class GatewaySvcController {
     return this.svc.getHello();
   }
 
+
+  @Get('hello')
+  getHelloNew() {
+    return this.svc.getHello();
+  }
 }

@@ -17,6 +17,7 @@
     "start-ingredient": "nest start ingredient-svc",
     "start-recipe": "nest start recipe-svc",
     "start:dev:gateway": "nest start gateway-svc --watch",
+    "start:dev:gateway-v2": "nest start gateway-svc-v2 --watch",
     "start:dev:ingredient": "nest start ingredient-svc --watch",
     "start:dev:recipe": "nest start recipe-svc --watch",
     "start:debug:": "nest start --debug --watch",
