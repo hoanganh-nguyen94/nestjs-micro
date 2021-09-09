@@ -19,7 +19,10 @@ kubectl -n demo apply -f k8s/deployment/recipe
 kubectl -n demo apply -f k8s/deployment/ui
 kubectl -n demo get all
 
-kubectl apply -f k8s/istio-1.10.2/samples/addons
-kubectl apply -f k8s/deployment/istio-addons-ingress.yaml
+#kubectl apply -f k8s/istio-1.10.2/samples/addons
+#kubectl apply -f k8s/deployment/istio-addons-ingress.yaml
 
 kubectl -n ingress-nginx port-forward deploy/nginx-ingress-controller 80
+
+
+#minikube start --nodes=3 --kubernetes-version=v1.20.7 --network-plugin=cni --cni=calico

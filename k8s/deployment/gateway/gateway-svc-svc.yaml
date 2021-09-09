@@ -1,10 +1,10 @@
-
 apiVersion: v1
 kind: Service
 metadata:
   name: gateway-svc
   labels:
     app: gateway-svc
+    service: gateway-svc
 spec:
   type: ClusterIP
   selector:
