@@ -3,7 +3,7 @@ import { Args, Query, Resolver } from '@nestjs/graphql';
 import { PubSub } from 'apollo-server-express';
 import { Ingredient } from './models/ingredient.model';
 import { IngredientsArgs } from './dto/ingredients.args';
-import { map, Observable } from 'rxjs';
+import { iif, map, mergeMap, Observable, of, throwError } from 'rxjs';
 import { IngredientService } from './ingredient.services';
 
 const pubSub = new PubSub();
@@ -15,11 +15,17 @@ export class IngredientResolver {
 
   @Query(returns => Ingredient)
   ingredient(@Args('id') id: string): Observable<Ingredient> {
-    const ingredient = this.ingredientService.findOneById(id).pipe(map(x => x?.result));
-    if (!ingredient) {
-      throw new NotFoundException(id);
-    }
-    return ingredient;
+    return this.ingredientService.findOneById(id)
+      .pipe(
+        map(x => x?.result),
+        mergeMap(v =>
+          iif(
+            () => !!(v),
+            of(v),
+            throwError(new NotFoundException(id))
+          )
+        )
+      );
   }
 
   @Query(returns => [Ingredient])
