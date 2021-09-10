@@ -25,12 +25,16 @@ message Ingredient {
 //  Ingredient node = 1;
 //}
 
-message FindIngredientPayload {
+message FindIngredientsPayload {
   repeated Ingredient result = 1;
 }
 
+message FindIngredientPayload {
+  Ingredient result = 1;
+}
+
 service IngredientService {
-  rpc findAll (Query) returns (FindIngredientPayload) {}
-  rpc findOneById (Id) returns (Ingredient) {}
+  rpc findAll (Query) returns (FindIngredientsPayload) {}
+  rpc findOneById (Id) returns (FindIngredientPayload) {}
 
 }
