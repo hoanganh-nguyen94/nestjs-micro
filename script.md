@@ -1,23 +1,22 @@
 ```shell
 
-docker tag gateway-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
-docker tag ingredient-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v2
-docker tag recipe-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v2
-
+docker tag gateway-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1
+docker tag gateway-svc-v2:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
+docker tag ingredient-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v1
+docker tag recipe-svc:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v1
 docker tag ui-management-v1:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v1
 docker tag ui-management-v2:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
-docker tag simple-app:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:simple-app
-
+docker tag ui-simple:latest registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-simple
 
 docker login registry.gitlab.com -u secret-push -p k2CgWBdeosBz9mqYzxVt
 
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v1
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
-docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v2
-docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v2
+docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v1
+docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v1
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v1
 docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
-docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:simple-app
+docker push registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-simple
 
 
 docker build -t registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2 -f Dockerfile.gateway-svc-v2 .

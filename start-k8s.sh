@@ -9,20 +9,15 @@ kubectl apply -f k8s/ingress-nginx/namespace.yaml
 kubectl label namespace/ingress-nginx istio-injection=enabled
 kubectl apply -f k8s/ingress-nginx/
 
-kubectl create ns demo
-kubectl label namespace/demo istio-injection=enabled
+bash deployment.sh
 
-kubectl -n demo apply -f k8s/deployment/gateway
-kubectl -n demo apply -f k8s/deployment/ingredient
-kubectl -n demo apply -f k8s/deployment/recipe
+bash istio-addons.sh
 
-kubectl -n demo apply -f k8s/deployment/ui
-kubectl -n demo get all
 
-#kubectl apply -f k8s/istio-1.10.2/samples/addons
-#kubectl apply -f k8s/deployment/istio-addons-ingress.yaml
 
-kubectl -n ingress-nginx port-forward deploy/nginx-ingress-controller 80
-
+#kubectl -n ingress-nginx port-forward deploy/nginx-ingress-controller 80
+#kubectl -n demo get deploy -o yaml | istioctl kube-inject -f - | kubectl apply -f -
 
 #minikube start --nodes=3 --kubernetes-version=v1.20.7 --network-plugin=cni --cni=calico
+#While ($true) { curl -UseBasicParsing http://simple.ui/api/client/; Start-Sleep -Seconds 1;}
+#While ($true) { curl -UseBasicParsing http://simple.ui/api/client/ingredient; Start-Sleep -Seconds 1;}

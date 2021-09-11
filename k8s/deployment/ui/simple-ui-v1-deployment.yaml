@@ -27,7 +27,7 @@ spec:
             - name: API_URL
               value: http://simple.ui/api
           name: simple-ui
-          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v1
+          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:simple-app
           imagePullPolicy: Always
 #          resources:
 #            requests:
