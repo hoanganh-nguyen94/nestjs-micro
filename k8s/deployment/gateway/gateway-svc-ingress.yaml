@@ -4,7 +4,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-#    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
   name: gateway-svc
   namespace: demo
 spec:
@@ -12,12 +12,11 @@ spec:
     - host: simple.ui
       http:
         paths:
-#          - path: /api/client(/|$)(.*)
-          - path: /
+          - path: /api/client(/|$)(.*)
             pathType: Prefix
             backend:
               service:
                 name: gateway-svc
                 port:
-                  number: 3101
+                  number: 3000
 
