@@ -15,6 +15,7 @@ kubectl apply -n demo -f k8s/servicemesh/applications/playlists-db/
 kubectl apply -n demo -f k8s/servicemesh/applications/videos-api/
 kubectl apply -n demo -f k8s/servicemesh/applications/videos-web/
 kubectl apply -n demo -f k8s/servicemesh/applications/videos-db/
+kubectl apply -n demo -f k8s/servicemesh/istio/traffic-splits
 
 kubectl -n demo get all
 

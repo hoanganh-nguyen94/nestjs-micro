@@ -2,9 +2,10 @@ apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
   name: simple-ui
+  namespace: demo
 spec:
   hosts:
-    - simple.ui
+    - simple-ui.demo.svc.cluster.local
   http:
     - match:
         - uri:

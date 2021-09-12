@@ -3,6 +3,7 @@ apiVersion: networking.istio.io/v1alpha3
 kind: DestinationRule
 metadata:
   name: simple-ui
+  namespace: demo
 spec:
   host: simple-ui.demo.svc.cluster.local
   subsets:
