@@ -13,11 +13,10 @@ bash deployment.sh
 
 bash istio-addons.sh
 
-
-
 #kubectl -n ingress-nginx port-forward deploy/nginx-ingress-controller 80
 #kubectl -n demo get deploy -o yaml | istioctl kube-inject -f - | kubectl apply -f -
+#kubectl -n ingress-nginx get deploy -o yaml | istioctl kube-inject -f - | kubectl apply -f -
 
 #minikube start --nodes=3 --kubernetes-version=v1.20.7 --network-plugin=cni --cni=calico
 #While ($true) { curl -UseBasicParsing http://simple.ui/api/client/; Start-Sleep -Seconds 1;}
-#While ($true) { curl -UseBasicParsing http://simple.ui/api/client/ingredient; Start-Sleep -Seconds 1;}
+#While ($true) { curl -UseBasicParsing http://simple.ui/api/ingredient; Start-Sleep -Seconds 1;}

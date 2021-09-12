@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: simple-ui-v2
+  namespace: demo
   labels:
     app: simple-ui
     version: v2
@@ -25,7 +26,7 @@ spec:
       containers:
         - env:
             - name: API_URL
-              value: http://simple.ui/api
+              value: http://simple.ui/api/client
           name: simple-ui
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
           imagePullPolicy: Always

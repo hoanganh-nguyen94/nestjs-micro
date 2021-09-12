@@ -28,8 +28,10 @@ spec:
               value: "0.0.0.0"
             - name: GRPC_PORT
               value: "50050"
+            - name: INGREDIENT_SVC_URL
+              value: ingredient-svc.demo.svc.cluster.local:80
           name: gateway-svc
-          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v2
+          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v1
           imagePullPolicy: Always
           resources:
             requests:

@@ -3,7 +3,7 @@ import * as faker from 'faker';
 import { Recipe } from './models/recipe.model';
 import { RecipesArgs } from './dto/recipes.args';
 import { IngredientTypeResolverService } from './ingredient/ingredient-type-resolver.service';
-import { take } from 'rxjs';
+import { catchError, of, take } from 'rxjs';
 
 const fakeData: Recipe[] = [
   {
@@ -43,7 +43,11 @@ export class RecipeSvcService {
   }
 
   findAll(args: RecipesArgs): Recipe[] {
-    this.ingredientTypeResolver.findAll(args).pipe(take(1)).subscribe(console.log);
+    this.ingredientTypeResolver.findAll(args).pipe(
+      take(1),
+      catchError((err, caught) => of(err))
+    )
+      .subscribe(console.log);
     return fakeData as Recipe[];
   }
 
