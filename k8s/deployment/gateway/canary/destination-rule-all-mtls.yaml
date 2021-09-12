@@ -5,9 +5,6 @@ metadata:
   namespace: demo
 spec:
   host: gateway-svc.demo.svc.cluster.local
-  trafficPolicy:
-    tls:
-      mode: ISTIO_MUTUAL
   subsets:
     - name: v1
       labels:

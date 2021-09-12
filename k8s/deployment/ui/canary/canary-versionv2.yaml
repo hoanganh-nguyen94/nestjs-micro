@@ -5,7 +5,8 @@ metadata:
   namespace: demo
 spec:
   hosts:
-    - simple-ui.demo.svc.cluster.local
+#    - simple-ui.demo.svc.cluster.local
+    - simple.ui
   http:
     - match:
         - uri:

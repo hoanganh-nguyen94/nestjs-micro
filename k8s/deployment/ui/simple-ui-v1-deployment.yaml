@@ -29,6 +29,7 @@ spec:
               value: http://simple.ui/api/client
           name: simple-ui
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v1
+#          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-simple
           imagePullPolicy: Always
 #          resources:
 #            requests:
