@@ -3,7 +3,7 @@ FROM registry.gitlab.com/hcg-openhub/hcg-hub/hcg-node:14-alpine as bundle
 
 WORKDIR /usr/src/api-gateway
 
-COPY dist/apps/gateway-svc .
+COPY dist/apps/gateway-svc-v2 .
 COPY package.json .
 
 RUN npm install --production

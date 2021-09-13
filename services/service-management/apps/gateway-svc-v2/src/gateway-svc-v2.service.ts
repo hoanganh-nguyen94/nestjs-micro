@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class GatewaySvcService {
+export class GatewaySvcV2Service {
   getHello(): string {
-    return 'Welcome to gateway-svc v1!';
+    return 'Hello World!';
   }
 }

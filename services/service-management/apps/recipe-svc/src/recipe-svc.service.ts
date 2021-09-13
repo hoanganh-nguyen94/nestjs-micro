@@ -2,6 +2,8 @@ import { Injectable } from '@nestjs/common';
 import * as faker from 'faker';
 import { Recipe } from './models/recipe.model';
 import { RecipesArgs } from './dto/recipes.args';
+import { IngredientTypeResolverService } from './ingredient/ingredient-type-resolver.service';
+import { catchError, of, take } from 'rxjs';
 
 const fakeData: Recipe[] = [
   {
@@ -33,11 +35,19 @@ const fakeData: Recipe[] = [
 @Injectable()
 export class RecipeSvcService {
 
+  constructor(private ingredientTypeResolver: IngredientTypeResolverService) {
+  }
+
   findOneById(id: string): Recipe {
     return fakeData.find(x => x.id === id) as Recipe || null;
   }
 
   findAll(args: RecipesArgs): Recipe[] {
+    this.ingredientTypeResolver.findAll(args).pipe(
+      take(1),
+      catchError((err, caught) => of(err))
+    )
+      .subscribe(console.log);
     return fakeData as Recipe[];
   }
 
