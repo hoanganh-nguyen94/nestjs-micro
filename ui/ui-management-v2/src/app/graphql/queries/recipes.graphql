@@ -1,0 +1,8 @@
+query Recipes
+{
+  response: recipes
+  {
+    id
+    name
+  }
+}
