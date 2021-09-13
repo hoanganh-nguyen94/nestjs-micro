@@ -4,19 +4,19 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
-  name: gateway-svc
+  name: ingredient-svc
   namespace: demo
 spec:
   rules:
-    - host: simple.ui
+    - host: simple.ingredient
       http:
         paths:
-          - path: /api/client(/|$)(.*)
+#          - path: /api/client(/|$)(.*)
+          - path: /
             pathType: Prefix
             backend:
               service:
-                name: gateway-svc
+                name: ingredient-svc
                 port:
-                  number: 3000
+                  number: 3101
 

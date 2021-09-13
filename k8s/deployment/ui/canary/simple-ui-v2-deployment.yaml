@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-ui-v2
+  namespace: demo
+  labels:
+    app: simple-ui
+    version: v2
+spec:
+  selector:
+    matchLabels:
+      app: simple-ui
+      version: v2
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: simple-ui
+        version: v2
+    spec:
+      containers:
+        - env:
+            - name: API_URL
+              value: http://simple.ui/api/client
+          name: simple-ui
+          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

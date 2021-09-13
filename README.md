@@ -1,21 +1,7 @@
 # UiManagementSpace
 
-```shell
-
-docker tag gateway-svc:latest hoanganhnguyen1994/ui-management:gateway-svc-v1
-docker tag ingredient-svc:latest hoanganhnguyen1994/ui-management:ingredient-svc-v1
-docker tag recipe-svc:latest hoanganhnguyen1994/ui-management:recipe-svc-v1
-
-docker push hoanganhnguyen1994/ui-management:gateway-svc-v1
-docker push hoanganhnguyen1994/ui-management:recipe-svc-v1
-docker push hoanganhnguyen1994/ui-management:ingredient-svc-v1
-
-```
-
-
 
 ```shell
-#or
 kind create cluster --name istio --config k8s/kind/kind-config.yaml
 
 istioctl install --set profile=default -y
@@ -37,6 +23,16 @@ kubectl create clusterrolebinding default-admin --clusterrole cluster-admin --se
 token=$(kubectl get secrets -o jsonpath="{.items[?(@.metadata.annotations['kubernetes\.io/service-account\.name']=='default')].data.token}"|base64 --decode)
 echo $token > token.txt
 kubectl proxy
+
+```
+
+---
+
+### [Setup kiali](http://127.0.0.1:20001)
+```shell
+kubectl apply -f k8s/istio-1.10.2/samples/addons
+kubectl apply -f k8s/istio-1.10.2/samples/addons/extras/
+kubectl port-forward svc/kiali -n istio-system 20001
 ```
 
 ### Deploy
@@ -46,7 +42,11 @@ kubectl create ns demo
 kubectl label namespace/demo istio-injection=enabled
 
 kubectl -n demo apply -f k8s/deployment/gateway
+kubectl -n demo apply -f k8s/deployment/gateway/canary
 kubectl -n demo apply -f k8s/deployment/ingredient
 kubectl -n demo apply -f k8s/deployment/recipe
+kubectl -n demo apply -f k8s/deployment/ui
+kubectl -n demo apply -f k8s/deployment/ui/canary
+kubectl -n demo get all
 
 ```

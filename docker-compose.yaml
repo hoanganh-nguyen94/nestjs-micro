@@ -1,19 +1,19 @@
 version: "3"
 
 services:
-  gateway-svc:
-    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
-    container_name: "gateway-svc"
+  gateway-svc-v2:
+    image: gateway-svc-v2
+    container_name: "gateway-svc-v2"
     build:
       context: "./services/service-management"
-      dockerfile: Dockerfile.gateway-svc
+      dockerfile: Dockerfile.gateway-svc-v2
     ports:
       - "3000:3000"
     environment:
       INGREDIENT_SVC_URL: "ingredient-svc:50051"
       RECIPE_SVC_URL: "recipe-svc:50052"
   ingredient-svc:
-    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v2
+    image: ingredient-svc
     container_name: "ingredient-svc"
     build:
       context: "./services/service-management"
@@ -24,7 +24,7 @@ services:
       GRPC_HOST: "0.0.0.0"
       GRPC_PORT: "50050"
   recipe-svc:
-    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v2
+    image: recipe-svc
     container_name: "recipe-svc"
     build:
       context: "./services/service-management"
@@ -34,3 +34,15 @@ services:
     environment:
       GRPC_HOST: "0.0.0.0"
       GRPC_PORT: "50050"
+      INGREDIENT_SVC_URL: "ingredient-svc:50051"
+
+  ui-management-v2:
+    image: ui-management-v2
+    container_name: "ui-management-v2"
+    build:
+      context: "./ui/ui-management-v2"
+      dockerfile: Dockerfile
+    ports:
+      - "5000:80"
+    environment:
+      API_URL: "http://localhost:3000"

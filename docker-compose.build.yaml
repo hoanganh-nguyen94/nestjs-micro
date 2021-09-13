@@ -12,6 +12,17 @@ services:
     environment:
       INGREDIENT_SVC_URL: "ingredient-svc:50051"
       RECIPE_SVC_URL: "recipe-svc:50052"
+  gateway-svc-v2:
+    image: "gateway-svc-v2"
+    container_name: "gateway-svc-v2"
+    build:
+      context: "./services/service-management"
+      dockerfile: Dockerfile.gateway-svc-v2
+    ports:
+      - "3000:3000"
+    environment:
+      INGREDIENT_SVC_URL: "ingredient-svc:50051"
+      RECIPE_SVC_URL: "recipe-svc:50052"
   ingredient-svc:
     image: "ingredient-svc"
     container_name: "ingredient-svc"
@@ -34,3 +45,21 @@ services:
     environment:
       GRPC_HOST: "0.0.0.0"
       GRPC_PORT: "50050"
+  ui-management:
+    image: "ui-management-v1"
+    container_name: "ui-management-v1"
+    build:
+      context: "./ui/ui-management"
+      dockerfile: Dockerfile
+  ui-management-v2:
+    image: "ui-management-v2"
+    container_name: "ui-management-v2"
+    build:
+      context: "./ui/ui-management-v2"
+      dockerfile: Dockerfile
+  ui-simple:
+    image: "ui-simple"
+    container_name: "ui-simple"
+    build:
+      context: "./ui/simple-app"
+      dockerfile: Dockerfile

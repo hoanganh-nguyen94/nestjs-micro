@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: simple-ui-v1
+  namespace: demo
+  labels:
+    app: simple-ui
+    version: v1
+spec:
+  selector:
+    matchLabels:
+      app: simple-ui
+      version: v1
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: simple-ui
+        version: v1
+    spec:
+      containers:
+        - env:
+            - name: API_URL
+              value: http://simple.ui/api/client
+          name: simple-ui
+          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v1
+#          image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-simple
+          imagePullPolicy: Always
+#          resources:
+#            requests:
+#              cpu: 50m
+#              memory: 150Mi
+#            limits:
+#              cpu: 100m
+#              memory: 300Mi
+          ports:
+            - containerPort: 80
