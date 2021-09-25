@@ -23,6 +23,12 @@ spec:
       containers:
         - name: ingredient-db
           image: redis
+          volumeMounts:
+            - name: data
+              mountPath: /tmp/
           ports:
             - containerPort: 6379
+      volumes:
+        - name: data
+          emptyDir: { }
 
