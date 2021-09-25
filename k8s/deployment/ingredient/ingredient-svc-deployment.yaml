@@ -32,7 +32,7 @@ spec:
             - name: INGREDIENT_SVC_PORT
               value: "3001"
             - name: INGREDIENT_DB_HOST
-              value: "ingredient-db"
+              value: ingredient-db.demo.svc.cluster.local
             - name: INGREDIENT_DB_PORT
               value: "6379"
 
