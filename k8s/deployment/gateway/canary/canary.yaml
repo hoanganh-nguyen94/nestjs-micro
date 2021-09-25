@@ -7,12 +7,12 @@ spec:
   hosts:
     - simple.api
   http:
-    route:
-      - destination:
-          host: gateway-svc.demo.svc.cluster.local
-          subset: v1
-        weight: 10
-      - destination:
-          host: gateway-svc.demo.svc.cluster.local
-          subset: v2
-        weight: 90
+    - route:
+        - destination:
+            host: gateway-svc.demo.svc.cluster.local
+            subset: v1
+          weight: 10
+        - destination:
+            host: gateway-svc.demo.svc.cluster.local
+            subset: v2
+          weight: 90

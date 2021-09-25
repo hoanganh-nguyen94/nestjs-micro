@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: ingredient-db
+  namespace: demo
+  labels:
+    app: ingredient-db
+spec:
+  type: ClusterIP
+  selector:
+    app: ingredient-db
+  ports:
+    - port: 6379
+      targetPort: 6379
+      protocol: TCP

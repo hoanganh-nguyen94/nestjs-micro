@@ -15,9 +15,9 @@ export class IngredientSvcController {
 
   @Get('ingredients')
   @GrpcMethod('IngredientService', 'findAll')
-  ingredients(ingredientsArgs: IngredientsArgs): { result: Ingredient[] } {
+  async ingredients(ingredientsArgs: IngredientsArgs): Promise<{ result: Ingredient[] }> {
     this.logger.log({ ingredientsArgs });
-    return { result: this.svc.findAll(ingredientsArgs) };
+    return { result: await this.svc.findAll(ingredientsArgs) };
   }
 
   @GrpcMethod('IngredientService', 'findOneById')

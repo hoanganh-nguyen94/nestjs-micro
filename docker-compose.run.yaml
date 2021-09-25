@@ -1,34 +1,55 @@
 version: "3"
 
 services:
-  gateway-svc-v2:
-    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
-    container_name: "gateway-svc"
+#  gateway-svc-v2:
+#    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:gateway-svc-v2
+#    container_name: "gateway-svc"
+#    ports:
+#      - "3000:3000"
+#    environment:
+#      INGREDIENT_SVC_URL: "ingredient-svc:50051"
+#      RECIPE_SVC_URL: "recipe-svc:50052"
+#  ingredient-svc:
+#    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v1
+#    container_name: "ingredient-svc"
+#    expose:
+#      - "50051"
+#    environment:
+#      GRPC_HOST: "0.0.0.0"
+#      GRPC_PORT: "50050"
+#  recipe-svc:
+#    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v1
+#    container_name: "recipe-svc"
+#    expose:
+#      - "50052"
+#    environment:
+#      GRPC_HOST: "0.0.0.0"
+#      GRPC_PORT: "50050"
+#  ui-management-v2:
+#    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
+#    container_name: "ui-management-v2"
+#    ports:
+#      - "5000:80"
+#    environment:
+#      API_URL: "gateway-svc:3000"
+  redis:
+    image: redis
+    container_name: "my_redis"
     ports:
-      - "3000:3000"
+      - "6379:6379"
+    restart: always     # "unless-stopped" or "always"
+    volumes:
+      - ./data-center/data:/data
+  mysql:
+    image: mysql
+    container_name: "mysql"
     environment:
-      INGREDIENT_SVC_URL: "ingredient-svc:50051"
-      RECIPE_SVC_URL: "recipe-svc:50052"
-  ingredient-svc:
-    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v1
-    container_name: "ingredient-svc"
-    expose:
-      - "50051"
-    environment:
-      GRPC_HOST: "0.0.0.0"
-      GRPC_PORT: "50050"
-  recipe-svc:
-    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:recipe-svc-v1
-    container_name: "recipe-svc"
-    expose:
-      - "50052"
-    environment:
-      GRPC_HOST: "0.0.0.0"
-      GRPC_PORT: "50050"
-  ui-management-v2:
-    image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ui-management-v2
-    container_name: "ui-management-v2"
+      MYSQL_ROOT_PASSWORD: mydata
+      MYSQL_DATABASE: mydata
+      MYSQL_USER: mydata
+      MYSQL_PASSWORD: mydata
     ports:
-      - "5000:80"
-    environment:
-      API_URL: "gateway-svc:3000"
+      - "3306:3306"
+    restart: always
+    volumes:
+      - ./data-center/mydata:/data

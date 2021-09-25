@@ -23,6 +23,10 @@ services:
     environment:
       GRPC_HOST: "0.0.0.0"
       GRPC_PORT: "50050"
+      INGREDIENT_DB_HOST: ingredient-db
+      INGREDIENT_DB_PORT: 6379
+    depends_on:
+      - ingredient-db
   recipe-svc:
     image: recipe-svc
     container_name: "recipe-svc"
@@ -35,7 +39,6 @@ services:
       GRPC_HOST: "0.0.0.0"
       GRPC_PORT: "50050"
       INGREDIENT_SVC_URL: "ingredient-svc:50051"
-
   ui-management-v2:
     image: ui-management-v2
     container_name: "ui-management-v2"
@@ -46,3 +49,11 @@ services:
       - "5000:80"
     environment:
       API_URL: "http://localhost:3000"
+  ingredient-db:
+    image: redis
+    container_name: "ingredient-db"
+    ports:
+      - "6379:6379"
+    restart: always
+    volumes:
+      - ./data-center/data:/data

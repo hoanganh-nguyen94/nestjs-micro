@@ -31,6 +31,11 @@ spec:
               value: "50050"
             - name: INGREDIENT_SVC_PORT
               value: "3001"
+            - name: INGREDIENT_DB_HOST
+              value: "ingredient-db"
+            - name: INGREDIENT_DB_PORT
+              value: "6379"
+
           name: gateway-svc
           image: registry.gitlab.com/hoanganhnguyen1994/ui-management:ingredient-svc-v1
           imagePullPolicy: Always
