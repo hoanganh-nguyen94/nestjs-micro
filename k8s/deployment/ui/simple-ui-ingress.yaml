@@ -12,7 +12,7 @@ spec:
     - host: simple.ui
       http:
         paths:
-          - path: "/"
+          - path: /
             backend:
               serviceName: simple-ui
               servicePort: 80

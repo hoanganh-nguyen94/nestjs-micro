@@ -5,14 +5,14 @@ metadata:
   namespace: demo
 spec:
   hosts:
-    - gateway-svc.demo.svc.cluster.local
+    - simple.api
   http:
-    - route:
-        - destination:
-            host: gateway-svc.demo.svc.cluster.local
-            subset: v1
-          weight: 30
-        - destination:
-            host: gateway-svc.demo.svc.cluster.local
-            subset: v2
-          weight: 70
+    route:
+      - destination:
+          host: gateway-svc.demo.svc.cluster.local
+          subset: v1
+        weight: 10
+      - destination:
+          host: gateway-svc.demo.svc.cluster.local
+          subset: v2
+        weight: 90
